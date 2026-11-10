@@ -54,14 +54,19 @@ requirements.txt
 
 ## Setup
 
-Python 3.10+ (3.11 recommended). You need an [OpenRouter](https://openrouter.ai) API key.
+Use Python 3.11-3.13 for this project. Python 3.15 currently hits a Windows DLL import issue in one of the LangChain dependencies, so stay on 3.11/3.13 while the project is being used.
+
+You also need an [OpenRouter](https://openrouter.ai) API key.
 
 ```bash
-uv venv --python 3.11
-uv pip install --python .venv/bin/python -r requirements.txt
-# pip alternative:  python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+# Windows (PowerShell)
+py -3.13 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 
-cp .env.example .env        # then paste your OPENROUTER_API_KEY into .env
+Copy-Item .env.example .env
+# then paste your OPENROUTER_API_KEY into .env
 ```
 
 ## Run
